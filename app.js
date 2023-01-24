@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 3000; 
 
+app.set('view engine', 'ejs');
+
 let myName = 'Sam';
 
 app.get('/', (req, res) => {
@@ -15,6 +17,12 @@ app.get('/show',(req, res) => {
     res.sendFile('index.html', { root: __dirname });
 
 
+})
+
+app.get('/ejs', (req,res) => {
+    // use res.render to load up an ejs view file
+    res.render('index');
+  
 })
 
 console.log('in the node console');
